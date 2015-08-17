@@ -31,6 +31,7 @@ gem 'unicorn'
 # gem 'capistrano-rails', group: :development
 
 gem 'pg'
+gem 'twitter'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
