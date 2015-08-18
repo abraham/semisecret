@@ -1,0 +1,32 @@
+<% status.to_json %>
+
+<% if status.retweeted_status.present? %>
+  <% id = status.retweeted_status.user.attrs[:id_str] + ':' + status.retweeted_status.attrs[:id_str] %>
+  <% profile_image = status.retweeted_status.user.profile_image_url_https %>
+  <% screen_name = status.retweeted_status.user.screen_name %>
+  <% name = status.retweeted_status.user.name %>
+  <% text = status.retweeted_status.text %>
+<% else %>
+  <% id = status.user.attrs[:id_str] + ':' + status.attrs[:id_str] %>
+  <% profile_image = status.user.profile_image_url_https %>
+  <% screen_name = status.user.screen_name %>
+  <% name = status.user.name %>
+  <% text = status.text %>
+<% end %>
+
+
+<div class="media">
+  <div class="media-left">
+    <a href="#">
+      <img class="media-object img-rounded" src="https://adorable-avatars.herokuapp.com/avatar/<%= id %>" alt="..." width="48" height="48">
+    </a>
+  </div>
+  <div class="media-body">
+    <p><%= text %></p>
+    <div>
+      <%= 'friend of a friend' if status.retweeted_status.present? %>
+      <span class="glyphicon glyphicon-retweet" aria-hidden="true"></span> <%= status.attrs[:retweet_count] %>
+      <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <%= status.attrs[:favorite_count] %>
+    </div>
+  </div>
+</div>

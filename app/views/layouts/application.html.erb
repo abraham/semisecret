@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Semisecret</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -8,7 +12,19 @@
 </head>
 <body>
 
-<%= yield %>
+<div class="container">
+  <div class="">
+    <h1 class="">SemiSecret</h1>
+    <p class="lead">Your Twitter, anonymish.</p>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <%= yield %>
+    </div>
+  </div>
+
+</div>
 
 </body>
 </html>
